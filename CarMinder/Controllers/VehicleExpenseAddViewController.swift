@@ -16,6 +16,7 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
     @IBOutlet var tfCost: UITextField!
     var imagePicker = UIImagePickerController()
     var currentScannedImagePaths: [String] = []
+    var imagesChosen = false;
     
     @IBAction func addDocumentbuttonClicked(){
         
@@ -23,10 +24,14 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
         let title = tfTitle.text!
         let cost = tfCost.text!
  
-        if(!title.isEmpty && !cost.isEmpty && mainDelegate.currentCarId != 0){
+        if(!title.isEmpty && !cost.isEmpty && mainDelegate.currentCarId != 0 && imagesChosen){
             expense.initWithData(theRow: 0, theTitle: title, theCost: Int(cost) ?? 0, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
             mainDelegate.insertIntoExpensesTable(expense: expense)
         }
+    }
+
+    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
+        imagesChosen = false
     }
     
     @IBAction func addImageButtonClicked() {
@@ -52,6 +57,7 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
        
        // Function to save image to local storage
     func saveImage(image: UIImage) {
+        imagesChosen = true
            if let data = image.jpegData(compressionQuality: 1.0) {
                let fileName = "expenses_\(Date().timeIntervalSince1970).jpg" // Unique
                let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)

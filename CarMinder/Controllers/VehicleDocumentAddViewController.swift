@@ -12,7 +12,7 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
     
     @IBOutlet var tfTitle: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
-    
+    var imagesChosen = false;
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var currentScannedImagePaths: [String] = []
@@ -23,7 +23,7 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
         var title = tfTitle.text!
         var date = datePicker.date
         
-        if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0){
+        if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0 && imagesChosen){
             document.initWithData(theRow: 0, theTitle: title, thePaperDate: date, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
            mainDelegate.insertIntoDocumentsTable(document: document)
         }
@@ -59,14 +59,19 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
                    try data.write(to: fileURL)
                    // appending the strings into arrayß
                    currentScannedImagePaths.append(fileURL.path)
+                   imagesChosen = true;
                    print("Image saved successfully at: \(fileURL)")
                   
                } catch {
+                   imagesChosen = false;
                    print("Error saving image: \(error.localizedDescription)")
                }
            }
        }
     
+    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
+        imagesChosen = false;
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
