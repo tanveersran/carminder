@@ -65,7 +65,15 @@ class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UI
         
         return tableCell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // set selectedImagePaths to the current selected row to display in the image collection
+        mainDelegate.selectedImagePaths = mainDelegate.expenses[indexPath.row].imagesUrl!
+     
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionViewController") as? CollectionViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
 
 }
