@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8A1021D6-A456-44D4-80AC-7699F9A45F49"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5F76C1F-79B5-49F0-9865-6E19CB8652EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarMinder/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "insertIntoDocumentsTable(document:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D5F76C1F-79B5-49F0-9865-6E19CB8652EC - e9771e17451c08ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CarMinder.AppDelegate.insertIntoDocumentsTable(document: CarMinder.Document) -&gt; Swift.Bool"
+                  moduleName = "CarMinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Downloads/CarMinder/CarMinder/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "328"
+                  endingLineNumber = "328"
+                  offsetFromSymbolStart = "5816">
+               </Location>
+               <Location
+                  uuid = "D5F76C1F-79B5-49F0-9865-6E19CB8652EC - e9771e17451c0830"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CarMinder.AppDelegate.insertIntoDocumentsTable(document: CarMinder.Document) -&gt; Swift.Bool"
+                  moduleName = "CarMinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Downloads/CarMinder/CarMinder/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "331"
+                  endingLineNumber = "331"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
