@@ -36,7 +36,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionViewCell
            
-           // Load image from path and set it in the cell
            if let image = UIImage(contentsOfFile: imagePaths[indexPath.item]) {
                cell.imageView.image = image
            }
@@ -48,9 +47,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
        
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            // Set custom size for collection view cells
-           return CGSize(width: 200, height: 200)
+           return CGSize(width: 500, height: 500)
        }
+    
+    
    }
+
 
    class ImageCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
        var imageView: UIImageView!

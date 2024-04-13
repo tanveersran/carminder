@@ -53,7 +53,7 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
        // Function to save image to local storage
     func saveImage(image: UIImage) {
            if let data = image.jpegData(compressionQuality: 1.0) {
-               let fileName = "\(mainDelegate.currentCarId)_expenses_\(Date().timeIntervalSince1970).jpg" // Unique
+               let fileName = "expenses_\(Date().timeIntervalSince1970).jpg" // Unique
                let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
                do {
                    try data.write(to: fileURL)

@@ -166,7 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     documents.append(data)
                     
                     print("Query Result:")
-                    print("\(id) | \(title) | \(date) | \(ccarId) ")
+                    print("\(id) | \(title) | \(date) | \(imagesUrlArray) | \(ccarId) ")
                     
                 }
                 

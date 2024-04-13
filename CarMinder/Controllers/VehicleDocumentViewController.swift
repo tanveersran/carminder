@@ -27,6 +27,7 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainDelegate.readDataFromDatabaseDocumentsTable(id: mainDelegate.currentCarId)
