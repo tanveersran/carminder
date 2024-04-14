@@ -12,6 +12,7 @@ class DocumentCell: UITableViewCell {
     // step 11 - define 2 labels and an image view for our custom cell
     let primaryLabel = UILabel()
     let secondaryLabel = UILabel()
+    let thirdLabel = UILabel()
     
     // step 11b - override the following constructor
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -28,11 +29,18 @@ class DocumentCell: UITableViewCell {
         secondaryLabel.backgroundColor = UIColor.clear
         secondaryLabel.textColor = UIColor.blue
         
+        // step 11d - configure secondaryLabel
+       thirdLabel.textAlignment = NSTextAlignment.left
+        thirdLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        thirdLabel.backgroundColor = UIColor.clear
+        thirdLabel.textColor = UIColor.red
+        
         
         // step 11e - no configuring of myImageView needed, instead add all 3 items manually as below
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(primaryLabel)
         contentView.addSubview(secondaryLabel)
+        contentView.addSubview(thirdLabel)
         
         
     }
@@ -58,14 +66,13 @@ class DocumentCell: UITableViewCell {
         f = CGRect(x: 5, y: 40, width: 460, height: 20)
         secondaryLabel.frame = f
         
-        
+        f = CGRect(x: 55, y: 40, width: 460, height: 20)
+        thirdLabel.frame = f
         
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

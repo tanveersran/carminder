@@ -26,7 +26,12 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
  
         if(!title.isEmpty && !cost.isEmpty && mainDelegate.currentCarId != 0 && imagesChosen){
             expense.initWithData(theRow: 0, theTitle: title, theCost: Int(cost) ?? 0, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
-            mainDelegate.insertIntoExpensesTable(expense: expense)
+            if(mainDelegate.insertIntoExpensesTable(expense: expense)){
+                if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleExpensesViewController") as? VehicleExpensesViewController{
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            
         }
     }
 
@@ -84,6 +89,5 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "Vehicle Expenses"
-        mainDelegate.readDataFromDatabaseExpenseTable(id: mainDelegate.currentCarId)
     }
 }

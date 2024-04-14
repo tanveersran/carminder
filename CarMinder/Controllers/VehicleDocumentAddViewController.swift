@@ -20,12 +20,18 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
     @IBAction func addDocumentbuttonClicked(){
         
         let document : Document = Document.init()
-        var title = tfTitle.text!
-        var date = datePicker.date
+        let title = tfTitle.text!
+        let date = datePicker.date
         
         if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0 && imagesChosen){
             document.initWithData(theRow: 0, theTitle: title, thePaperDate: date, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
-           mainDelegate.insertIntoDocumentsTable(document: document)
+           if(
+               mainDelegate.insertIntoDocumentsTable(document: document)
+           ){
+               if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleDocumentViewController") as? VehicleDocumentViewController{
+                   self.navigationController?.pushViewController(vc, animated: true)
+               }
+           }
         }
     }
     

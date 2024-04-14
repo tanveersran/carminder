@@ -21,6 +21,9 @@
 		CE13F9FB2BBA4DE700520DD2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F9FA2BBA4DE700520DD2 /* Document.swift */; };
 		CE1E97F32BC8D45B0014896E /* VehicleExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E97F22BC8D45B0014896E /* VehicleExpensesViewController.swift */; };
 		CE1E97F52BC8D5DF0014896E /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E97F42BC8D5DF0014896E /* Expense.swift */; };
+		CE714FD22BCB46CD00E86859 /* ServiceReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */; };
+		CE714FD42BCB48A100E86859 /* ServiceReminderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */; };
+		CE714FD62BCB4EEA00E86859 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD52BCB4EEA00E86859 /* Reminder.swift */; };
 		CEEDC05B2BB8BD4A00315785 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDC05A2BB8BD4A00315785 /* AppDelegate.swift */; };
 		CEEDC05D2BB8BD4A00315785 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDC05C2BB8BD4A00315785 /* SceneDelegate.swift */; };
 		CEEDC05F2BB8BD4A00315785 /* VehicleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDC05E2BB8BD4A00315785 /* VehicleListViewController.swift */; };
@@ -66,6 +69,9 @@
 		CE13F9FA2BBA4DE700520DD2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		CE1E97F22BC8D45B0014896E /* VehicleExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleExpensesViewController.swift; sourceTree = "<group>"; };
 		CE1E97F42BC8D5DF0014896E /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReminderViewController.swift; sourceTree = "<group>"; };
+		CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReminderAddViewController.swift; sourceTree = "<group>"; };
+		CE714FD52BCB4EEA00E86859 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		CEEDC0572BB8BD4A00315785 /* CarMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDC05A2BB8BD4A00315785 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDC05C2BB8BD4A00315785 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 				CE13F9FA2BBA4DE700520DD2 /* Document.swift */,
 				379CA51B2BBB1C3500E49CD6 /* DocumentCell.swift */,
 				CE1E97F42BC8D5DF0014896E /* Expense.swift */,
+				CE714FD52BCB4EEA00E86859 /* Reminder.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -205,6 +212,8 @@
 				CE13F9F82BBA4BA700520DD2 /* VehicleDocumentViewController.swift */,
 				CE1E97F22BC8D45B0014896E /* VehicleExpensesViewController.swift */,
 				1442AB062BCA2DF3002AD444 /* CollectionViewController.swift */,
+				CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */,
+				CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -347,15 +356,18 @@
 				CE1E97F32BC8D45B0014896E /* VehicleExpensesViewController.swift in Sources */,
 				379CA51C2BBB1C3500E49CD6 /* DocumentCell.swift in Sources */,
 				CE13F9F52BBA43AC00520DD2 /* VehicleDocumentAddViewController.swift in Sources */,
+				CE714FD22BCB46CD00E86859 /* ServiceReminderViewController.swift in Sources */,
 				CEEDC05F2BB8BD4A00315785 /* VehicleListViewController.swift in Sources */,
 				CE13F9F32BBA327500520DD2 /* ViewDocumentsViewController.swift in Sources */,
 				CEEDC05B2BB8BD4A00315785 /* AppDelegate.swift in Sources */,
 				CE13F9FB2BBA4DE700520DD2 /* Document.swift in Sources */,
 				CEEDC05D2BB8BD4A00315785 /* SceneDelegate.swift in Sources */,
 				1442AB072BCA2DF3002AD444 /* CollectionViewController.swift in Sources */,
+				CE714FD42BCB48A100E86859 /* ServiceReminderAddViewController.swift in Sources */,
 				CE13F9EA2BB8CD3A00520DD2 /* SiteCell.swift in Sources */,
 				CE13F9E42BB8C20800520DD2 /* Car.swift in Sources */,
 				CE13F9F72BBA48BD00520DD2 /* VehicleExpenseAddViewController.swift in Sources */,
+				CE714FD62BCB4EEA00E86859 /* Reminder.swift in Sources */,
 				CE13F9F92BBA4BA700520DD2 /* VehicleDocumentViewController.swift in Sources */,
 				CE13F9EF2BB8D1C900520DD2 /* VehicleAddViewController.swift in Sources */,
 			);

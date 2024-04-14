@@ -28,6 +28,11 @@ class ViewDocumentsViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    @IBAction func serviceReminderButtonClicked(){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ServiceReminderViewController") as? ServiceReminderViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
 
   

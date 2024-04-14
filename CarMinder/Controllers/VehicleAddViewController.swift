@@ -26,29 +26,18 @@ class VehicleAddViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func submitButtonClicked(_ sender: UIButton){
-
+        
         let car : Car = Car.init()
-
+        
         car.initWithData(theRow: 0, theName: tfName.text!,theVin: tfVin.text!, theImage:  "accord.jpeg" )
-
-
-        // step 18c - do the insert into db
-        let returnCode : Bool = mainDelegate.insertIntoDatabase(car: car)
-
-        // step 18d - show alert box to indicate success/fail
-        var returnMSG : String = "Car Added"
-
-        if returnCode == false
-        {
-            returnMSG = "Car Add Failed"
+        
+        if(mainDelegate.insertIntoDatabase(car: car)){
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleListViewController") as? VehicleListViewController{
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
         }
-
-        let alertController = UIAlertController(title: "SQLite Add", message: returnMSG, preferredStyle: .alert)
-
-        let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
+        
     }
     
 

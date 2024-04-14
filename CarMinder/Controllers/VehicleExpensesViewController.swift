@@ -22,7 +22,7 @@ class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
 
       
-        self.navigationController?.navigationBar.topItem?.title = "View Expenses"
+        self.navigationController?.navigationBar.topItem?.title = "View Documents"
 
         mainDelegate.readDataFromDatabaseExpenseTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))

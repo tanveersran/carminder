@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentCarId: Int!
     var expenses : [Expense] = []
     var selectedImagePaths: [String] = []
+    var reminders : [Reminder] = []
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -237,6 +238,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     
     }
+    func readDataFromDatabaseRemindersTable(id:Int)
+    {
+  
+    reminders.removeAll()
+    
+        var db: OpaquePointer? = nil
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(self.databasePath)")
+            
+            var queryStatement: OpaquePointer? = nil
+            let queryStatementString : String = "select * from reminders where car_id = \(currentCarId!)"
+            
+            if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+                
+                while( sqlite3_step(queryStatement) == SQLITE_ROW ) {
+                
+                    
+                    let id: Int = Int(sqlite3_column_int(queryStatement, 0))
+                    let ctitle = sqlite3_column_text(queryStatement, 1)
+                    let cdate = sqlite3_column_text(queryStatement, 2)
+                    let cdueDistance = sqlite3_column_int(queryStatement, 3)
+                    let ccarId = sqlite3_column_int(queryStatement, 4)
+                    
+                    
+                    
+                    let title = String(cString: ctitle!)
+                    let dateString = String(cString: cdate!)
+                    
+                    
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    
+                    guard let date = dateFormatter.date(from:dateString) else{
+                        fatalError("Faild to convert date string to date object")
+                    }
+                    print ("car id = \(ccarId)")
+                    let data : Reminder = Reminder.init()
+                    data.initWithData(theRow: id,theTitle: title, theDueDate: date, theDueDistance: Int(cdueDistance),theCarId: Int(ccarId) )
+                    reminders.append(data)
+                    
+                    print("Query Result:")
+                    print("\(id) | \(title) | \(date) | \(cdueDistance) | \(ccarId) ")
+                    
+                }
+                
+                sqlite3_finalize(queryStatement)
+            } else {
+                print("SELECT statement could not be prepared")
+            }
+            
+          
+            sqlite3_close(db);
+
+        } else {
+            print("Unable to open database.")
+        }
+    
+    }
+    
     
    
     func insertIntoDatabase(car : Car) -> Bool
@@ -323,6 +385,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 sqlite3_bind_text(insertStatement, 1, title.utf8String, -1, nil)
                 sqlite3_bind_text(insertStatement, 2, (dateString as NSString).utf8String, -1, nil)
                 sqlite3_bind_text(insertStatement, 3, imagesUrl.utf8String, -1, nil)
+                sqlite3_bind_int(insertStatement, 4, Int32(Int(car_id)))
+               
+             
+                if sqlite3_step(insertStatement) == SQLITE_DONE {
+                    let rowID = sqlite3_last_insert_rowid(db)
+                    print("Successfully inserted row. \(rowID)")
+                } else {
+                    print("Could not insert row.")
+                    returnCode = false
+                }
+               
+                sqlite3_finalize(insertStatement)
+            } else {
+                print("INSERT statement could not be prepared.")
+                returnCode = false
+            }
+            
+            
+            sqlite3_close(db);
+            
+        } else {
+            print("Unable to open database.")
+            returnCode = false
+        }
+        return returnCode
+    }
+    
+    func insertIntoRemindersTable(reminder : Reminder) -> Bool
+    {
+        // step 16b - define sqlite3 object to interact with db
+        var db: OpaquePointer? = nil
+        var returnCode : Bool = true
+        
+        // step 16c - open connection to db file - this is C code
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(String(describing: self.databasePath))")
+            
+            // step 16d - setup query - entries is the table name you created in step 0
+            var insertStatement: OpaquePointer? = nil
+            let insertStatementString : String = "insert into reminders values(NULL, ?, ?, ?, ?)"
+            
+            // step 16e - setup object that will handle data transfer
+            if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+               
+           
+                let title = reminder.title! as NSString
+                let paperDate = reminder.dueDate! as NSDate
+                // get the array and join it to a string to be stored into db
+                let dueDistance = reminder.dueDistance! as NSInteger
+                let car_id = reminder.carId! as NSInteger
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                
+                let dateString = dateFormatter.string(from: paperDate as Date)
+               
+
+                sqlite3_bind_text(insertStatement, 1, title.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, (dateString as NSString).utf8String, -1, nil)
+                sqlite3_bind_int(insertStatement, 3, Int32(Int(dueDistance)))
                 sqlite3_bind_int(insertStatement, 4, Int32(Int(car_id)))
                
              
