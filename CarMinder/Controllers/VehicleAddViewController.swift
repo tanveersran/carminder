@@ -4,6 +4,7 @@ class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePi
 
     @IBOutlet var tfName : UITextField!
     @IBOutlet var tfVin : UITextField!
+    var currentScannedImagePath: String!
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     var imagePicker = UIImagePickerController()
     
@@ -54,8 +55,19 @@ class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            // Do something with the selected image
-            // For example, set it to an image view or save it to your model
+            if let data = selectedImage.jpegData(compressionQuality: 1.0) {
+                let fileName = "carImage_\(Date().timeIntervalSince1970).jpg" // Unique
+                let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
+                do {
+                    try data.write(to: fileURL)
+                  
+                    currentScannedImagePath = fileURL.path
+                    print("Image saved successfully at: \(fileURL)")
+                   
+                } catch {
+                    print("Error saving image: \(error.localizedDescription)")
+                }
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -67,7 +79,7 @@ class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBAction func submitButtonClicked(_ sender: UIButton){
         let car : Car = Car.init()
         
-        car.initWithData(theRow: 0, theName: tfName.text!, theVin: tfVin.text!, theImage:  "accord.jpeg" )
+        car.initWithData(theRow: 0, theName: tfName.text!, theVin: tfVin.text!, theImage:  currentScannedImagePath! )
         
         if(mainDelegate.insertIntoDatabase(car: car)){
             if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleListViewController") as? VehicleListViewController{
