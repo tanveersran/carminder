@@ -88,6 +88,6 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.topItem?.title = "Vehicle Expenses"
+        title = "Vehicle Expenses"
     }
 }

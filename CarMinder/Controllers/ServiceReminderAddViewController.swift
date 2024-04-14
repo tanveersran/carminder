@@ -34,7 +34,7 @@ class ServiceReminderAddViewController: UIViewController ,UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.topItem?.title = "Service Reminder"
+        title = "Add a Reminder"
 
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

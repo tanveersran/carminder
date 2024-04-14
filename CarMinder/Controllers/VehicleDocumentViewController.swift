@@ -20,9 +20,7 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
         
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        self.navigationController?.navigationBar.topItem?.title = "View Documents"
-
+        title = "Vehicle Documents"
         mainDelegate.readDataFromDatabaseDocumentsTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton

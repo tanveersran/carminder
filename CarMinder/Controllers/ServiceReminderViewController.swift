@@ -21,7 +21,7 @@ class ServiceReminderViewController: UIViewController,  UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.topItem?.title = "View Documents"
+        title = "Service Reminders"
 
         mainDelegate.readDataFromDatabaseRemindersTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))

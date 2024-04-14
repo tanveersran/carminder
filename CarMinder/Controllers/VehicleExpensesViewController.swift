@@ -22,7 +22,7 @@ class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
 
       
-        self.navigationController?.navigationBar.topItem?.title = "View Documents"
+        title = "Vehicle Expenses"
 
         mainDelegate.readDataFromDatabaseExpenseTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
@@ -35,7 +35,6 @@ class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UI
         tableView.reloadData()
         
     }
-    
     
     
     override func didReceiveMemoryWarning() {

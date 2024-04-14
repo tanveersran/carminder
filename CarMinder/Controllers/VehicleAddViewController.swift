@@ -16,8 +16,7 @@ class VehicleAddViewController: UIViewController , UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("vehicle add view controller")
-        self.navigationController?.navigationBar.backItem?.rightBarButtonItem?.title = "back"
+        title = "Add Vehicle"
        
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

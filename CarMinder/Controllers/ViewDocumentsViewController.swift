@@ -11,10 +11,10 @@ class ViewDocumentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        title = "View Documents"
 
-        // Do any additional setup after loading the view.
     }
+   
     
     @IBAction func viewDocumentButtonClicked()
     {

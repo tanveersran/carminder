@@ -25,21 +25,20 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         mainDelegate.readDataFromDatabase()
    
         tableView.reloadData()
-        self.navigationController?.navigationBar.topItem?.title = "My Cars"
-        // Do any additional setup after loading the view.
         
+        navigationController?.navigationBar.tintColor = UIColor.red
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClicked))
         navigationItem.rightBarButtonItem = addButton
+        
+        title = "My Cars"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainDelegate.readDataFromDatabase()
         tableView.reloadData()
-        
-      
     }
-  
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

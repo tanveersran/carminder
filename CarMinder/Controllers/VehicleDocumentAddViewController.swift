@@ -86,8 +86,7 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.topItem?.title = "Vehicle documents"
+        title = "Vehicle documents"
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
