@@ -25,9 +25,8 @@ class ServiceReminderAddViewController: UIViewController ,UITextFieldDelegate{
         if(!title.isEmpty && !date.description.isEmpty && !distance.isEmpty && mainDelegate.currentCarId != 0){
             reminder.initWithData(theRow: 0, theTitle: title, theDueDate: date, theDueDistance: dueDistance, theCarId: mainDelegate.currentCarId)
             if(mainDelegate.insertIntoRemindersTable(reminder: reminder)){
-                if let vc = storyboard?.instantiateViewController(withIdentifier: "ServiceReminderViewController") as? ServiceReminderViewController{
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                
+                navigationController?.popViewController(animated: true)
             }
         }
     }

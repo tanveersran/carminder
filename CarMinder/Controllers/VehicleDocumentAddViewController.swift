@@ -23,17 +23,16 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
         let title = tfTitle.text!
         let date = datePicker.date
         
-        if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0 && imagesChosen){
+        if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0 ){ //&& imagesChosen
             document.initWithData(theRow: 0, theTitle: title, thePaperDate: date, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
            if(
                mainDelegate.insertIntoDocumentsTable(document: document)
            ){
-               if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleDocumentViewController") as? VehicleDocumentViewController{
-                   self.navigationController?.pushViewController(vc, animated: true)
+               navigationController?.popViewController(animated: true)
                }
            }
         }
-    }
+    
     
     @IBAction func addImageButtonClicked() {
         let documentScannerViewController = VNDocumentCameraViewController()

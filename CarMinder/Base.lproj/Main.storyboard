@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0nP-DF-Yy8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oy9-mK-F16">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -13,18 +13,15 @@
         <!--Vehicle List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="VehicleListViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="VehicleListViewController" customModule="CarMinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VehicleListViewController" id="BYZ-38-t0r" customClass="VehicleListViewController" customModule="CarMinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kl3-aq-ukr">
-                                <rect key="frame" x="0.0" y="51.666666666666671" width="393" height="749"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kl3-aq-ukr">
+                                <rect key="frame" x="0.0" y="108" width="393" height="772"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="749" id="7o2-Y2-BNI"/>
-                                    <constraint firstAttribute="width" constant="393" id="WjO-nJ-yaS"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="lIV-H0-uRv"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jSU-mS-91Y"/>
@@ -33,10 +30,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Kl3-aq-ukr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LfY-Ei-buc"/>
-                            <constraint firstItem="Kl3-aq-ukr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="S8w-na-nRu"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cQ1-yg-VU2"/>
                     <connections>
@@ -45,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754.9618320610687" y="-5.6338028169014089"/>
+            <point key="canvasLocation" x="1754.9618320610687" y="-6.3380281690140849"/>
         </scene>
         <!--Vehicle Add View Controller-->
         <scene sceneID="hpz-0V-1DG">
@@ -55,6 +48,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="5s6-DC-jR5">
+                                <rect key="frame" x="-68" y="-88" width="528" height="1028"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vehicle Identification Number(VIN)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chd-d5-Vn1">
                                 <rect key="frame" x="17" y="268" width="263.33333333333331" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,15 +69,6 @@
                                     <outlet property="delegate" destination="QFE-sZ-VtU" id="ip1-xt-2br"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nr-bC-IuJ">
-                                <rect key="frame" x="143" y="379" width="106" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add image"/>
-                                <connections>
-                                    <action selector="addImageButtonClicked:" destination="QFE-sZ-VtU" eventType="touchUpInside" id="8gg-RQ-bgP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6c-yp-mg2">
                                 <rect key="frame" x="115" y="467" width="162" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,6 +95,15 @@
                                     <outlet property="delegate" destination="QFE-sZ-VtU" id="4mG-yK-3cK"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nr-bC-IuJ">
+                                <rect key="frame" x="17" y="359" width="118" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add image"/>
+                                <connections>
+                                    <action selector="addImageButtonClicked:" destination="QFE-sZ-VtU" eventType="touchUpInside" id="8gg-RQ-bgP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dd6-kc-jCk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -154,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu2-TU-Zcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1929.0076335877861" y="-28.169014084507044"/>
+            <point key="canvasLocation" x="-2515" y="-6"/>
         </scene>
         <!--Service Reminder Add View Controller-->
         <scene sceneID="BJK-ch-8iY">
@@ -232,7 +229,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmA-PW-Dtk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1059" y="-6"/>
+            <point key="canvasLocation" x="-1653" y="-6"/>
+        </scene>
+        <!--Search Garages View Controller-->
+        <scene sceneID="tsk-17-lbr">
+            <objects>
+                <viewController storyboardIdentifier="SearchGaragesViewController" id="dbS-va-VKy" customClass="SearchGaragesViewController" customModule="CarMinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JfZ-r0-EQf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w3h-bE-zKr">
+                                <rect key="frame" x="0.0" y="162" width="393" height="690"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-yE-lgR">
+                                <rect key="frame" x="26" y="179" width="340" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="findNewLocationWithSender:" destination="dbS-va-VKy" eventType="valueChanged" id="jDS-gf-hOk"/>
+                                    <outlet property="delegate" destination="dbS-va-VKy" id="Msk-1s-JT9"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UVY-F3-q9T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="myMapView" destination="w3h-bE-zKr" id="Rdl-SV-Bvb"/>
+                        <outlet property="tbLocEntered" destination="Mch-yE-lgR" id="uqB-BO-6Dp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0l-P2-ERe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.59541984732823" y="-741.54929577464793"/>
         </scene>
         <!--View Documents View Controller-->
         <scene sceneID="NUl-wE-zq8">
@@ -242,58 +275,117 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m41-tG-Buy">
-                                <rect key="frame" x="92.666666666666686" y="299" width="208" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="4rV-IH-3dc"/>
-                                    <constraint firstAttribute="height" constant="35" id="Jqz-GW-qIl"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m41-tG-Buy">
+                                <rect key="frame" x="213" y="197" width="154" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Expenses"/>
+                                <buttonConfiguration key="configuration" style="filled" image="saving.png" title="Expenses">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="viewExpenseButtonClicked" destination="L4G-H8-CLF" eventType="touchUpInside" id="gnv-mA-gMj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APl-I8-1Z6">
-                                <rect key="frame" x="92.666666666666686" y="364" width="208" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="foz-zR-YIn"/>
-                                    <constraint firstAttribute="width" constant="208" id="ifh-He-SoU"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="157-3c-myx">
+                                <rect key="frame" x="35" y="197" width="154" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Service Reminder"/>
-                                <connections>
-                                    <action selector="serviceReminderButtonClicked" destination="L4G-H8-CLF" eventType="touchUpInside" id="riq-By-NBc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="157-3c-myx">
-                                <rect key="frame" x="92.666666666666686" y="234" width="208" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="mMi-tD-Prv"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Vehicle Documents"/>
+                                <buttonConfiguration key="configuration" style="filled" image="document.png" titleAlignment="center">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Vehicle Documents"/>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="viewDocumentButtonClicked" destination="L4G-H8-CLF" eventType="touchUpInside" id="6Fc-A3-Kyc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtB-cZ-vky">
+                                <rect key="frame" x="213" y="311" width="154" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="maps.png" title="View Nearby garages">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="findNearbyGaragesButtonClicked" destination="L4G-H8-CLF" eventType="touchUpInside" id="UIL-g2-nuR"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="r69-T3-YDk">
+                                <rect key="frame" x="0.0" y="453" width="393" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APl-I8-1Z6">
+                                <rect key="frame" x="35" y="311" width="154" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="alarm.png" title="Service Reminder">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="serviceReminderButtonClicked" destination="L4G-H8-CLF" eventType="touchUpInside" id="riq-By-NBc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wah-gq-JQa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="157-3c-myx" firstAttribute="centerY" secondItem="WtV-GM-GVt" secondAttribute="centerY" constant="-174.5" id="0yg-PR-R3I"/>
-                            <constraint firstItem="157-3c-myx" firstAttribute="centerX" secondItem="WtV-GM-GVt" secondAttribute="centerX" id="JWS-lX-7UV"/>
-                            <constraint firstItem="APl-I8-1Z6" firstAttribute="centerX" secondItem="WtV-GM-GVt" secondAttribute="centerX" id="adc-QS-Np1"/>
-                            <constraint firstItem="m41-tG-Buy" firstAttribute="centerX" secondItem="WtV-GM-GVt" secondAttribute="centerX" id="k6I-HP-QV2"/>
-                            <constraint firstItem="m41-tG-Buy" firstAttribute="centerY" secondItem="WtV-GM-GVt" secondAttribute="centerY" constant="-109.5" id="tEW-p6-7RC"/>
-                            <constraint firstItem="APl-I8-1Z6" firstAttribute="centerY" secondItem="WtV-GM-GVt" secondAttribute="centerY" constant="-44.5" id="x0e-BK-RyP"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GJq-1d-PJX"/>
+                    <connections>
+                        <outlet property="serviceReminderButton" destination="APl-I8-1Z6" id="sS7-3b-Uh1"/>
+                        <outlet property="viewDocumentButton" destination="157-3c-myx" id="w9g-xV-ooI"/>
+                        <outlet property="viewExpenseButton" destination="m41-tG-Buy" id="PiT-v8-m3F"/>
+                        <outlet property="viewMapButton" destination="OtB-cZ-vky" id="iEl-U0-MO2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPV-dJ-swG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-153" y="-19"/>
+            <point key="canvasLocation" x="-715.26717557251902" y="-6.3380281690140849"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="W8W-vs-akm">
+            <objects>
+                <viewController id="Oy9-mK-F16" customClass="SplashViewController" customModule="CarMinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="awB-1e-zNJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAR MINDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gW-Fb-XAi">
+                                <rect key="frame" x="0.0" y="192" width="393" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="7u8-tO-GJh">
+                                <rect key="frame" x="0.0" y="317" width="393" height="535"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="boc-Jv-vRB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="awB-1e-zNJ" id="m7n-EQ-xBW"/>
+                        <outlet property="titleLabel" destination="8gW-Fb-XAi" id="quG-Ui-Pk6"/>
+                        <segue destination="0nP-DF-Yy8" kind="show" identifier="firstScreen" id="NEQ-cp-10h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDl-hc-fnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.946564885496173" y="-6.3380281690140849"/>
         </scene>
         <!--Vehicle Expenses View Controller-->
         <scene sceneID="z2e-30-whd">
@@ -364,6 +456,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background4.jpeg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aaA-Pk-YC1">
+                                <rect key="frame" x="-45" y="-84" width="514" height="1017"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ik-d5-enh">
                                 <rect key="frame" x="16" y="182" width="33" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -382,22 +478,12 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-qD-On2">
-                                <rect key="frame" x="143" y="495" width="106" height="35"/>
+                                <rect key="frame" x="143" y="409" width="106" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add image"/>
                                 <connections>
                                     <action selector="addImageButtonClicked" destination="WlC-5g-0ds" eventType="touchUpInside" id="JVd-Mt-Qb7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ie-qx-AqN">
-                                <rect key="frame" x="127" y="592" width="138.00000000000006" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add Document"/>
-                                <connections>
-                                    <action selector="addDocumentbuttonClicked" destination="WlC-5g-0ds" eventType="touchUpInside" id="Yv9-Ik-BeE"/>
-                                    <action selector="submitButtonClicked:" destination="QFE-sZ-VtU" eventType="touchUpInside" id="2Zq-Vg-krc"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="mHv-Tr-gT5">
@@ -411,6 +497,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ie-qx-AqN">
+                                <rect key="frame" x="127" y="475" width="138.00000000000006" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Document"/>
+                                <connections>
+                                    <action selector="addDocumentbuttonClicked" destination="WlC-5g-0ds" eventType="touchUpInside" id="Yv9-Ik-BeE"/>
+                                    <action selector="submitButtonClicked:" destination="QFE-sZ-VtU" eventType="touchUpInside" id="2Zq-Vg-krc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Scp-Wi-WJe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -543,10 +639,11 @@
         <!--Navigation Controller-->
         <scene sceneID="bCD-lE-sK8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0nP-DF-Yy8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="0nP-DF-Yy8" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cDu-BJ-4g8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7gh-od-WMX">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -556,15 +653,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4SX-Kl-Hyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828.24427480916029" y="-5.6338028169014089"/>
+            <point key="canvasLocation" x="963" y="-6"/>
         </scene>
     </scenes>
     <resources>
+        <image name="alarm.png" width="24" height="24"/>
+        <image name="background2.jpeg" width="750" height="1236"/>
+        <image name="background4.jpeg" width="259.20001220703125" height="460.79998779296875"/>
+        <image name="car.png" width="144" height="144"/>
+        <image name="document.png" width="24" height="24"/>
+        <image name="maps.png" width="32" height="32"/>
+        <image name="saving.png" width="24" height="24"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

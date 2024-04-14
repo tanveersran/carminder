@@ -23,15 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        // this method creates an array of directories under ~/Documents
         let documentPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
        
-        // ~/Documents is always at index 0
         let documentsDir = documentPaths[0]
         
-        // append filename such that path is ~/Documents/MyDatabase.db
         databasePath = documentsDir.appending("/" + databaseName!)
         
         checkAndCreateDatabase()
@@ -69,20 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var db: OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(self.databasePath)")
             
-            // step 7d - setup query - entries is the table name you created in step 0
             var queryStatement: OpaquePointer? = nil
             let queryStatementString : String = "select * from cars"
             
-            // step 7e - setup object that will handle data transfer
             if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
                 
-                // step 7f - loop through row by row to extract dat
                 while( sqlite3_step(queryStatement) == SQLITE_ROW ) {
                 
-                    // step 7g - extract columns data, convert from char* to NSString
-                    // col 0 - id, col 1 = name, col 2 = email, col 3 = food
                     
                     let id: Int = Int(sqlite3_column_int(queryStatement, 0))
                     let cname = sqlite3_column_text(queryStatement, 1)
@@ -98,25 +88,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     
            
-                    // step 7h - save to data object and add to array
                     let data : Car = Car.init()
                     data.initWithData(theRow: id,theName: name, theVin: vin,theImage : image)
                     cars.append(data)
                     
-                    print("Query Result:")
-                    print("\(id) | \(name) | \(vin) | \(image) ")
-                    
                 }
-                // step 7i - clean up
                 
                 sqlite3_finalize(queryStatement)
             } else {
                 print("SELECT statement could not be prepared")
             }
             
-            
-            // step 7j - close connection
-            // move on to ViewController.swift
             sqlite3_close(db);
 
         } else {
@@ -132,7 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var db: OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(self.databasePath)")
             
             var queryStatement: OpaquePointer? = nil
             let queryStatementString : String = "select * from documents where car_id = \(currentCarId!)"
@@ -161,14 +142,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     guard let date = dateFormatter.date(from:dateString) else{
                         fatalError("Faild to convert date string to date object")
                     }
-                    print ("car id = \(ccarId)")
                     let data : Document = Document.init()
                     data.initWithData(theRow: id,theTitle: title, thePaperDate: date, theImagesUrl: imagesUrlArray,theCarId: Int(ccarId) )
                     documents.append(data)
-                    
-                    print("Query Result:")
-                    print("\(id) | \(title) | \(date) | \(imagesUrlArray) | \(ccarId) ")
-                    
+           
                 }
                 
                 sqlite3_finalize(queryStatement)
@@ -193,7 +170,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var db: OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(self.databasePath)")
             
             var queryStatement: OpaquePointer? = nil
             let queryStatementString : String = "select * from expenses where car_id = \(currentCarId!)"
@@ -220,8 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     data.initWithData(theRow: id,theTitle: title,theCost:  Int(ccost), theImagesUrl: imagesUrlArray ,theCarId: Int(ccarId) )
                     expenses.append(data)
                     
-                    print("Query Result:")
-                    print("\(id) | \(title) | \(ccost) | \(imagesUrlArray) | \(ccarId) ")
+                
                     
                 }
                 
@@ -246,7 +221,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var db: OpaquePointer? = nil
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(self.databasePath)")
             
             var queryStatement: OpaquePointer? = nil
             let queryStatementString : String = "select * from reminders where car_id = \(currentCarId!)"
@@ -279,9 +253,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let data : Reminder = Reminder.init()
                     data.initWithData(theRow: id,theTitle: title, theDueDate: date, theDueDistance: Int(cdueDistance),theCarId: Int(ccarId) )
                     reminders.append(data)
-                    
-                    print("Query Result:")
-                    print("\(id) | \(title) | \(date) | \(cdueDistance) | \(ccarId) ")
+    
                     
                 }
                 
@@ -303,19 +275,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     func insertIntoDatabase(car : Car) -> Bool
     {
-        // step 16b - define sqlite3 object to interact with db
         var db: OpaquePointer? = nil
         var returnCode : Bool = true
         
-        // step 16c - open connection to db file - this is C code
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             
-            // step 16d - setup query - entries is the table name you created in step 0
             var insertStatement: OpaquePointer? = nil
             let insertStatementString : String = "insert into cars values(NULL, ?, ?,?)"
             
-            // step 16e - setup object that will handle data transfer
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                
            
@@ -354,25 +321,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func insertIntoDocumentsTable(document : Document) -> Bool
     {
-        // step 16b - define sqlite3 object to interact with db
         var db: OpaquePointer? = nil
         var returnCode : Bool = true
         
-        // step 16c - open connection to db file - this is C code
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             
-            // step 16d - setup query - entries is the table name you created in step 0
             var insertStatement: OpaquePointer? = nil
             let insertStatementString : String = "insert into documents values(NULL, ?, ?,?,?)"
             
-            // step 16e - setup object that will handle data transfer
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                
            
                 let title = document.title! as NSString
                 let paperDate = document.paperDate! as NSDate
-                // get the array and join it to a string to be stored into db
                 let imagesUrl = document.imagesUrl!.joined(separator: ",") as NSString
                 let car_id = document.carId! as NSInteger
                 
@@ -411,6 +372,146 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return returnCode
     }
+    func deleteFromDocumentsTable(documentId: Int) -> Bool {
+        var db: OpaquePointer? = nil
+        var returnCode: Bool = true
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            
+            var deleteStatement: OpaquePointer? = nil
+            let deleteStatementString: String = "DELETE FROM documents WHERE document_id = ?"
+            
+            if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+                sqlite3_bind_int(deleteStatement, 1, Int32(documentId))
+                
+                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                    print("Successfully deleted row with id \(documentId)")
+                    
+                } else {
+                    print("Could not delete row with id \(documentId)")
+                    returnCode = false
+                }
+                
+                sqlite3_finalize(deleteStatement)
+            } else {
+                print("DELETE statement could not be prepared.")
+                returnCode = false
+            }
+            
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+            returnCode = false
+        }
+        
+        return returnCode
+    }
+    func deleteFromCarsTable(carId: Int) -> Bool {
+        var db: OpaquePointer? = nil
+        var returnCode: Bool = true
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            
+            var deleteStatement: OpaquePointer? = nil
+            let deleteStatementString: String = "DELETE FROM cars WHERE car_id = ?"
+            
+            if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+                sqlite3_bind_int(deleteStatement, 1, Int32(carId))
+                
+                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                    print("Successfully deleted row with id \(carId)")
+                    
+                } else {
+                    print("Could not delete row with id \(carId)")
+                    returnCode = false
+                }
+                
+                sqlite3_finalize(deleteStatement)
+            } else {
+                print("DELETE statement could not be prepared.")
+                returnCode = false
+            }
+            
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+            returnCode = false
+        }
+        
+        return returnCode
+    }
+    func deleteFromExpensesTable(expenseId: Int) -> Bool {
+        var db: OpaquePointer? = nil
+        var returnCode: Bool = true
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(String(describing: self.databasePath))")
+            
+            var deleteStatement: OpaquePointer? = nil
+            let deleteStatementString: String = "DELETE FROM expenses WHERE id = ?"
+            
+            if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+                sqlite3_bind_int(deleteStatement, 1, Int32(expenseId))
+                
+                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                    print("Successfully deleted row with id \(expenseId)")
+                    
+                } else {
+                    print("Could not delete row with id \(expenseId)")
+                    returnCode = false
+                }
+                
+                sqlite3_finalize(deleteStatement)
+            } else {
+                print("DELETE statement could not be prepared.")
+                returnCode = false
+            }
+            
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+            returnCode = false
+        }
+        
+        return returnCode
+    }
+    func deleteFromReminderTable(reminderId: Int) -> Bool {
+        var db: OpaquePointer? = nil
+        var returnCode: Bool = true
+        
+        if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
+            
+            var deleteStatement: OpaquePointer? = nil
+            let deleteStatementString: String = "DELETE FROM reminders WHERE id = ?"
+            
+            if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+                sqlite3_bind_int(deleteStatement, 1, Int32(reminderId))
+                
+                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                    print("Successfully deleted row with id \(reminderId)")
+                    
+                } else {
+                    print("Could not delete row with id \(reminderId)")
+                    returnCode = false
+                }
+                
+                sqlite3_finalize(deleteStatement)
+            } else {
+                print("DELETE statement could not be prepared.")
+                returnCode = false
+            }
+            
+            sqlite3_close(db)
+        } else {
+            print("Unable to open database.")
+            returnCode = false
+        }
+        
+        return returnCode
+    }
+
+
+
     
     func insertIntoRemindersTable(reminder : Reminder) -> Bool
     {
@@ -420,7 +521,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // step 16c - open connection to db file - this is C code
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
-            print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             
             // step 16d - setup query - entries is the table name you created in step 0
             var insertStatement: OpaquePointer? = nil
@@ -473,19 +573,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func insertIntoExpensesTable(expense : Expense) -> Bool
     {
-        // step 16b - define sqlite3 object to interact with db
         var db: OpaquePointer? = nil
         var returnCode : Bool = true
         
-        // step 16c - open connection to db file - this is C code
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             
-            // step 16d - setup query - entries is the table name you created in step 0
             var insertStatement: OpaquePointer? = nil
             let insertStatementString : String = "insert into expenses values(NULL, ?, ?,?,?)"
             
-            // step 16e - setup object that will handle data transfer
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                
            
@@ -494,9 +590,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let imagesUrl = expense.imagesUrl!.joined(separator: ",") as NSString
                 let car_id = expense.carId! as NSInteger
                 
-               
-               
-
+    
                 sqlite3_bind_text(insertStatement, 1, title.utf8String, -1, nil)
                 sqlite3_bind_int(insertStatement, 2, Int32(Int(cost)))
                 sqlite3_bind_text(insertStatement, 3, imagesUrl.utf8String, -1, nil)
@@ -531,19 +625,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func insertIntoTracker(id : Int) -> Bool
     {
-        // step 16b - define sqlite3 object to interact with db
         var db: OpaquePointer? = nil
         var returnCode : Bool = true
         
-        // step 16c - open connection to db file - this is C code
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             
-            // step 16d - setup query - entries is the table name you created in step 0
             var insertStatement: OpaquePointer? = nil
             let insertStatementString : String = "insert into tracker values(?)"
             
-            // step 16e - setup object that will handle data transfer
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
                
            
@@ -585,13 +675,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             
-            // Setup query to delete all rows from the tracker table
             var deleteStatement: OpaquePointer? = nil
             let deleteStatementString: String = "DELETE FROM tracker"
             
-            // Prepare delete statement
             if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
-                // Execute delete statement
                 if sqlite3_step(deleteStatement) == SQLITE_DONE {
                     print("Successfully deleted all rows from the tracker table.")
                 } else {
@@ -619,7 +706,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
     
 
-    // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

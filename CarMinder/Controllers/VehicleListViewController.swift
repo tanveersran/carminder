@@ -31,6 +31,12 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         navigationItem.rightBarButtonItem = addButton
         
         title = "My Cars"
+        
+        let backgroundImage = UIImage(named: "background.jpeg")
+        let backgroundImageView = UIImageView(image: backgroundImage)
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.85
+        tableView.backgroundView = backgroundImageView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +48,6 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // step 12 - add table methods
@@ -87,6 +92,27 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         }
 
         
+    }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+ 
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete", handler:
+        { ac, view, success in
+           if( self.mainDelegate.deleteFromDocumentsTable(documentId: self.mainDelegate.cars[indexPath.row].id!) &&
+               self.mainDelegate.deleteFromExpensesTable(expenseId: self.mainDelegate.cars[indexPath.row].id!) &&
+               self.mainDelegate.deleteFromReminderTable(reminderId: self.mainDelegate.cars[indexPath.row].id!))
+            {
+               if( self.mainDelegate.deleteFromCarsTable(carId: self.mainDelegate.cars[indexPath.row].id!)){
+                   self.mainDelegate.readDataFromDatabase()
+                   tableView.reloadData()
+               }
+           }
+            
+            success(true)
+        }
+        )
+        deleteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     

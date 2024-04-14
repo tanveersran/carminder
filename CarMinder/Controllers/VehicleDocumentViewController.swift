@@ -78,5 +78,21 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+ 
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete", handler:
+        { ac, view, success in
+            if(self.mainDelegate.deleteFromDocumentsTable(documentId: self.mainDelegate.documents[indexPath.row].id!)){
+                self.mainDelegate.readDataFromDatabaseDocumentsTable(id: self.mainDelegate.currentCarId)
+                self.tableView.reloadData()
+            }
+            success(true)
+        }
+        )
+        deleteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 
 }

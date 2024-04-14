@@ -10,6 +10,15 @@
 		1442AB072BCA2DF3002AD444 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442AB062BCA2DF3002AD444 /* CollectionViewController.swift */; };
 		379CA5152BBB0F1F00E49CD6 /* carminder.db in Resources */ = {isa = PBXBuildFile; fileRef = 379CA5142BBB0F1F00E49CD6 /* carminder.db */; };
 		379CA51C2BBB1C3500E49CD6 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CA51B2BBB1C3500E49CD6 /* DocumentCell.swift */; };
+		CE112D492BCC97B200A7E56F /* saving.png in Resources */ = {isa = PBXBuildFile; fileRef = CE112D452BCC97B200A7E56F /* saving.png */; };
+		CE112D4A2BCC97B200A7E56F /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = CE112D462BCC97B200A7E56F /* document.png */; };
+		CE112D4B2BCC97B200A7E56F /* maps.png in Resources */ = {isa = PBXBuildFile; fileRef = CE112D472BCC97B200A7E56F /* maps.png */; };
+		CE112D4C2BCC97B200A7E56F /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = CE112D482BCC97B200A7E56F /* alarm.png */; };
+		CE112D4E2BCC9BEC00A7E56F /* documentCartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE112D4D2BCC9BEC00A7E56F /* documentCartoon.png */; };
+		CE112D502BCC9CFF00A7E56F /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE112D4F2BCC9CFF00A7E56F /* background.jpeg */; };
+		CE112D522BCC9F2000A7E56F /* background2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE112D512BCC9F2000A7E56F /* background2.jpeg */; };
+		CE112D5C2BCCA2C700A7E56F /* background3.webp in Resources */ = {isa = PBXBuildFile; fileRef = CE112D5B2BCCA2C700A7E56F /* background3.webp */; };
+		CE112D5E2BCCA32500A7E56F /* background4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE112D5D2BCCA32500A7E56F /* background4.jpeg */; };
 		CE13F9E42BB8C20800520DD2 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F9E32BB8C20700520DD2 /* Car.swift */; };
 		CE13F9EA2BB8CD3A00520DD2 /* SiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F9E92BB8CD3A00520DD2 /* SiteCell.swift */; };
 		CE13F9ED2BB8CF1900520DD2 /* accord.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE13F9EC2BB8CF1900520DD2 /* accord.jpeg */; };
@@ -21,6 +30,10 @@
 		CE13F9FB2BBA4DE700520DD2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F9FA2BBA4DE700520DD2 /* Document.swift */; };
 		CE1E97F32BC8D45B0014896E /* VehicleExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E97F22BC8D45B0014896E /* VehicleExpensesViewController.swift */; };
 		CE1E97F52BC8D5DF0014896E /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E97F42BC8D5DF0014896E /* Expense.swift */; };
+		CE2178282BCC715E0087FC1B /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2178272BCC715E0087FC1B /* car.png */; };
+		CE21782A2BCC72AC0087FC1B /* SearchGaragesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2178292BCC72AC0087FC1B /* SearchGaragesViewController.swift */; };
+		CE62C5122BCB96F80004BD95 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62C5112BCB96F80004BD95 /* SplashViewController.swift */; };
+		CE62C5162BCB9ED70004BD95 /* opening.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE62C5152BCB9ED70004BD95 /* opening.mp3 */; };
 		CE714FD22BCB46CD00E86859 /* ServiceReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */; };
 		CE714FD42BCB48A100E86859 /* ServiceReminderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */; };
 		CE714FD62BCB4EEA00E86859 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD52BCB4EEA00E86859 /* Reminder.swift */; };
@@ -58,6 +71,15 @@
 		1442AB062BCA2DF3002AD444 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		379CA5142BBB0F1F00E49CD6 /* carminder.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = carminder.db; sourceTree = "<group>"; };
 		379CA51B2BBB1C3500E49CD6 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
+		CE112D452BCC97B200A7E56F /* saving.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saving.png; sourceTree = "<group>"; };
+		CE112D462BCC97B200A7E56F /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
+		CE112D472BCC97B200A7E56F /* maps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maps.png; sourceTree = "<group>"; };
+		CE112D482BCC97B200A7E56F /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
+		CE112D4D2BCC9BEC00A7E56F /* documentCartoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = documentCartoon.png; sourceTree = "<group>"; };
+		CE112D4F2BCC9CFF00A7E56F /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
+		CE112D512BCC9F2000A7E56F /* background2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpeg; sourceTree = "<group>"; };
+		CE112D5B2BCCA2C700A7E56F /* background3.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = background3.webp; sourceTree = "<group>"; };
+		CE112D5D2BCCA32500A7E56F /* background4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background4.jpeg; sourceTree = "<group>"; };
 		CE13F9E32BB8C20700520DD2 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		CE13F9E92BB8CD3A00520DD2 /* SiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteCell.swift; sourceTree = "<group>"; };
 		CE13F9EC2BB8CF1900520DD2 /* accord.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = accord.jpeg; sourceTree = "<group>"; };
@@ -69,6 +91,10 @@
 		CE13F9FA2BBA4DE700520DD2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		CE1E97F22BC8D45B0014896E /* VehicleExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleExpensesViewController.swift; sourceTree = "<group>"; };
 		CE1E97F42BC8D5DF0014896E /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		CE2178272BCC715E0087FC1B /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		CE2178292BCC72AC0087FC1B /* SearchGaragesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGaragesViewController.swift; sourceTree = "<group>"; };
+		CE62C5112BCB96F80004BD95 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		CE62C5152BCB9ED70004BD95 /* opening.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = opening.mp3; sourceTree = "<group>"; };
 		CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReminderViewController.swift; sourceTree = "<group>"; };
 		CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReminderAddViewController.swift; sourceTree = "<group>"; };
 		CE714FD52BCB4EEA00E86859 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -132,6 +158,16 @@
 		CE13F9EB2BB8CDAC00520DD2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE112D5D2BCCA32500A7E56F /* background4.jpeg */,
+				CE112D5B2BCCA2C700A7E56F /* background3.webp */,
+				CE112D512BCC9F2000A7E56F /* background2.jpeg */,
+				CE112D4F2BCC9CFF00A7E56F /* background.jpeg */,
+				CE112D4D2BCC9BEC00A7E56F /* documentCartoon.png */,
+				CE112D482BCC97B200A7E56F /* alarm.png */,
+				CE112D462BCC97B200A7E56F /* document.png */,
+				CE112D472BCC97B200A7E56F /* maps.png */,
+				CE112D452BCC97B200A7E56F /* saving.png */,
+				CE2178272BCC715E0087FC1B /* car.png */,
 				CE13F9EC2BB8CF1900520DD2 /* accord.jpeg */,
 			);
 			path = images;
@@ -161,6 +197,7 @@
 		CEEDC0592BB8BD4A00315785 /* CarMinder */ = {
 			isa = PBXGroup;
 			children = (
+				CE62C5152BCB9ED70004BD95 /* opening.mp3 */,
 				379CA5142BBB0F1F00E49CD6 /* carminder.db */,
 				CE13F9EB2BB8CDAC00520DD2 /* images */,
 				CE13F9E22BB8C1F100520DD2 /* Classes */,
@@ -214,6 +251,8 @@
 				1442AB062BCA2DF3002AD444 /* CollectionViewController.swift */,
 				CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */,
 				CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */,
+				CE62C5112BCB96F80004BD95 /* SplashViewController.swift */,
+				CE2178292BCC72AC0087FC1B /* SearchGaragesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -323,10 +362,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2178282BCC715E0087FC1B /* car.png in Resources */,
 				379CA5152BBB0F1F00E49CD6 /* carminder.db in Resources */,
+				CE62C5162BCB9ED70004BD95 /* opening.mp3 in Resources */,
+				CE112D4E2BCC9BEC00A7E56F /* documentCartoon.png in Resources */,
+				CE112D522BCC9F2000A7E56F /* background2.jpeg in Resources */,
+				CE112D4A2BCC97B200A7E56F /* document.png in Resources */,
+				CE112D4C2BCC97B200A7E56F /* alarm.png in Resources */,
 				CEEDC0672BB8BD4C00315785 /* LaunchScreen.storyboard in Resources */,
+				CE112D5E2BCCA32500A7E56F /* background4.jpeg in Resources */,
 				CE13F9ED2BB8CF1900520DD2 /* accord.jpeg in Resources */,
+				CE112D4B2BCC97B200A7E56F /* maps.png in Resources */,
+				CE112D492BCC97B200A7E56F /* saving.png in Resources */,
+				CE112D502BCC9CFF00A7E56F /* background.jpeg in Resources */,
 				CEEDC0642BB8BD4C00315785 /* Assets.xcassets in Resources */,
+				CE112D5C2BCCA2C700A7E56F /* background3.webp in Resources */,
 				CEEDC0622BB8BD4A00315785 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,8 +416,10 @@
 				CE714FD42BCB48A100E86859 /* ServiceReminderAddViewController.swift in Sources */,
 				CE13F9EA2BB8CD3A00520DD2 /* SiteCell.swift in Sources */,
 				CE13F9E42BB8C20800520DD2 /* Car.swift in Sources */,
+				CE62C5122BCB96F80004BD95 /* SplashViewController.swift in Sources */,
 				CE13F9F72BBA48BD00520DD2 /* VehicleExpenseAddViewController.swift in Sources */,
 				CE714FD62BCB4EEA00E86859 /* Reminder.swift in Sources */,
+				CE21782A2BCC72AC0087FC1B /* SearchGaragesViewController.swift in Sources */,
 				CE13F9F92BBA4BA700520DD2 /* VehicleDocumentViewController.swift in Sources */,
 				CE13F9EF2BB8D1C900520DD2 /* VehicleAddViewController.swift in Sources */,
 			);

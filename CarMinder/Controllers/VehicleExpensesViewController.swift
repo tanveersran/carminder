@@ -73,6 +73,21 @@ class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UI
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+ 
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete", handler:
+        { ac, view, success in
+            if(self.mainDelegate.deleteFromExpensesTable(expenseId: self.mainDelegate.expenses[indexPath.row].id!)){
+                self.mainDelegate.readDataFromDatabaseExpenseTable(id: self.mainDelegate.currentCarId)
+                self.tableView.reloadData()
+            }
+            success(true)
+        }
+        )
+        deleteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
     
 
 }

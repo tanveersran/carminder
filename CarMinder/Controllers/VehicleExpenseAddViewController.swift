@@ -24,12 +24,10 @@ class VehicleExpenseAddViewController: UIViewController ,UITextFieldDelegate, VN
         let title = tfTitle.text!
         let cost = tfCost.text!
  
-        if(!title.isEmpty && !cost.isEmpty && mainDelegate.currentCarId != 0 && imagesChosen){
+        if(!title.isEmpty && !cost.isEmpty && mainDelegate.currentCarId != 0 ){//&& imagesChosen
             expense.initWithData(theRow: 0, theTitle: title, theCost: Int(cost) ?? 0, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
             if(mainDelegate.insertIntoExpensesTable(expense: expense)){
-                if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleExpensesViewController") as? VehicleExpensesViewController{
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                navigationController?.popViewController(animated: true)
             }
             
         }

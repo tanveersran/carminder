@@ -57,13 +57,12 @@ class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePi
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             if let data = selectedImage.jpegData(compressionQuality: 1.0) {
                 let fileName = "carImage_\(Date().timeIntervalSince1970).jpg" // Unique
-                let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let fileURL = documentsDirectory.appendingPathComponent(fileName)
                 do {
                     try data.write(to: fileURL)
-                  
                     currentScannedImagePath = fileURL.path
                     print("Image saved successfully at: \(fileURL)")
-                   
                 } catch {
                     print("Error saving image: \(error.localizedDescription)")
                 }
@@ -71,7 +70,7 @@ class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePi
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
@@ -82,9 +81,7 @@ class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePi
         car.initWithData(theRow: 0, theName: tfName.text!, theVin: tfVin.text!, theImage:  currentScannedImagePath! )
         
         if(mainDelegate.insertIntoDatabase(car: car)){
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleListViewController") as? VehicleListViewController{
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+            navigationController?.popViewController(animated: true)
         }
     }
 }

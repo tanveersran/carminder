@@ -26,8 +26,8 @@ class ServiceReminderViewController: UIViewController,  UITableViewDataSource, U
         mainDelegate.readDataFromDatabaseRemindersTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
+       
 
-        // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,9 +59,25 @@ class ServiceReminderViewController: UIViewController,  UITableViewDataSource, U
         
         return tableCell
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+ 
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete", handler:
+        { ac, view, success in
+            if(self.mainDelegate.deleteFromReminderTable(reminderId: self.mainDelegate.reminders[indexPath.row].id!)){
+                self.mainDelegate.readDataFromDatabaseRemindersTable(id: self.mainDelegate.currentCarId)
+                self.tableView.reloadData()
+            }
+            success(true)
+        }
+        )
+        deleteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainDelegate.readDataFromDatabaseExpenseTable(id: mainDelegate.currentCarId)
+        mainDelegate.readDataFromDatabaseRemindersTable(id: mainDelegate.currentCarId)
         tableView.reloadData()
         
     }
