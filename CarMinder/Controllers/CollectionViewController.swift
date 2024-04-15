@@ -3,7 +3,9 @@
 //  CarMinder
 //
 //  Created by Tanveer Sran on 2024-04-12.
+//  This file is used to show the collection view of images.
 //
+
 
 import UIKit
 

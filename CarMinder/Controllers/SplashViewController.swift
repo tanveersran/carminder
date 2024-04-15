@@ -2,8 +2,10 @@
 //  SplashViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 4/14/24.
+//  Created by Rajat Rajat on 4/14/24.
+// This controller is used to show the splash screen of the application.
 //
+
 
 import UIKit
 import AVFoundation

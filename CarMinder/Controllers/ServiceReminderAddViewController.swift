@@ -2,8 +2,8 @@
 //  ServiceReminderAddViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 4/13/24.
-//
+//  Created by Aditya on 4/13/24.
+//  This controller is used to add a service reminder for the car
 
 import UIKit
 
