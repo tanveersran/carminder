@@ -2,9 +2,9 @@
 //  VehicleExpensesViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 4/12/24.
+//  Created by Birarpanjot Singh on 4/12/24.
+//  This file is used to show the vehicle expenses of the car which has already been added by the user.
 //
-
 import UIKit
 
 class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

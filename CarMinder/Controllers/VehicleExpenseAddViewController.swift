@@ -2,7 +2,8 @@
 //  VehicleExpenseAddViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 4/1/24.
+//  Created by Birarpanjot Singh on 4/1/24.
+//  This controller is used to add the expenses of the vehicle.
 //
 
 import UIKit
