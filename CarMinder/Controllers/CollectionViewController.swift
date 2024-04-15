@@ -39,7 +39,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
            if let image = UIImage(contentsOfFile: imagePaths[indexPath.item]) {
                cell.imageView.image = image
            }
-           
+                    
            return cell
        }
        
@@ -47,7 +47,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
        
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            // Set custom size for collection view cells
-           return CGSize(width: 500, height: 500)
+           return CGSize(width: 250, height: 250)
        }
     
     
