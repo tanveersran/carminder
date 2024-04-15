@@ -24,6 +24,8 @@ class SearchGaragesViewController: UIViewController, CLLocationManagerDelegate, 
         searchBar.delegate = self
         searchBar.placeholder = "Search for nearby garages"
         
+        searchNearbyGarages(for: "car repair")
+        
         title = "Nearby Garages"
     }
 
@@ -33,7 +35,7 @@ class SearchGaragesViewController: UIViewController, CLLocationManagerDelegate, 
         if initialLocation == nil {
             initialLocation = location
 
-            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10, longitudinalMeters: 10)
             myMapView.setRegion(region, animated: true)
         }
     }
