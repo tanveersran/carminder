@@ -63,6 +63,8 @@ class ServiceReminderViewController: UIViewController,  UITableViewDataSource, U
         tableCell.thirdLabel.text = "Date : " + dateString
         tableCell.accessoryType = .disclosureIndicator
         
+        tableCell.backgroundColor = .clear
+        
         return tableCell
     }
     

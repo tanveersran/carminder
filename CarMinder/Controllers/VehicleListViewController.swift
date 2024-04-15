@@ -63,11 +63,9 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         tableCell.primaryLabel.text = mainDelegate.cars[rowNum].name
         tableCell.secondaryLabel.text = "VIN " + mainDelegate.cars[rowNum].vin!
         tableCell.myImageView.image = UIImage(named: mainDelegate.cars[rowNum].image!)
-            
-        
+        tableCell.backgroundColor = .clear
 
-        
-    tableCell.accessoryType = .disclosureIndicator
+        tableCell.accessoryType = .disclosureIndicator
         
         return tableCell
     }

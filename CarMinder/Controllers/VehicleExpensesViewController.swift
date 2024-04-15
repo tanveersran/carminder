@@ -67,6 +67,7 @@ class VehicleExpensesViewController: UIViewController, UITableViewDataSource, UI
         tableCell.primaryLabel.text = mainDelegate.expenses[rowNum].title
         tableCell.secondaryLabel.text = "Cost : " + (mainDelegate.expenses[rowNum].cost?.codingKey.stringValue)!
         tableCell.accessoryType = .disclosureIndicator
+        tableCell.backgroundColor = .clear
         
         return tableCell
     }

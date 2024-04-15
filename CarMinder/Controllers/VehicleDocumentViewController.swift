@@ -71,7 +71,7 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
         tableCell.myImageView.image = UIImage(named: mainDelegate.documents[rowNum].imagesUrl![0])
             
 
-        
+        tableCell.backgroundColor = .clear
     tableCell.accessoryType = .disclosureIndicator
         
         return tableCell
