@@ -1,3 +1,12 @@
+//
+//  VehicleAddViewController.swift
+//  CarMinder
+//
+//  Created by Tanveer Sran
+// This controller is for the logic and connections to the screen where user can see all vehicles they have and select them
+//
+
+
 import UIKit
 
 class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {

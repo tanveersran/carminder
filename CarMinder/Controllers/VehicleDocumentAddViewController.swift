@@ -2,7 +2,8 @@
 //  VehicleDocumentAddViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 4/1/24.
+//  Created by Rajat Rajat on 4/1/24.
+//  This loads the document add view
 //
 
 import UIKit
@@ -17,13 +18,15 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
     
     var currentScannedImagePaths: [String] = []
     
+    
+    // this saves the entered data to database
     @IBAction func addDocumentbuttonClicked(){
         
         let document : Document = Document.init()
         let title = tfTitle.text!
         let date = datePicker.date
         
-        if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0 ){ //&& imagesChosen
+        if(!title.isEmpty && !date.description.isEmpty && mainDelegate.currentCarId != 0 ){
             document.initWithData(theRow: 0, theTitle: title, thePaperDate: date, theImagesUrl: currentScannedImagePaths,theCarId: mainDelegate.currentCarId)
            if(
                mainDelegate.insertIntoDocumentsTable(document: document)
@@ -33,13 +36,14 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
            }
         }
     
-    
+    // this opens the visionkit document scanner
     @IBAction func addImageButtonClicked() {
         let documentScannerViewController = VNDocumentCameraViewController()
         documentScannerViewController.delegate = self
         present(documentScannerViewController, animated: true)
     }
     
+    // this loads the document
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
            // Loop through scanned pages
            for pageIndex in 0..<scan.pageCount {
@@ -78,6 +82,7 @@ class VehicleDocumentAddViewController: UIViewController , UITextFieldDelegate, 
         imagesChosen = false;
     }
     
+    // this is to close keyboard on return button click
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

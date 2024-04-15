@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  VehicleListViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 3/30/24.
+//  Created by Tanveer Sran
 // This controller is for the logic and connections to the screen where user can see all vehicles they have and select them
 //
 

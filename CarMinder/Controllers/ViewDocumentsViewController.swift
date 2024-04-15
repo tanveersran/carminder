@@ -2,20 +2,22 @@
 //  ViewDocumentsViewController.swift
 //  CarMinder
 //
-//  Created by Default User on 4/1/24.
+//  Created by Rajat
+//  This controller is the home of all the options you can select like expenses, documents
 //
 
 import UIKit
 
 class ViewDocumentsViewController: UIViewController {
     
+    // using the app delegate
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-    @IBOutlet weak var viewDocumentButton: UIButton!
-    @IBOutlet weak var viewExpenseButton: UIButton!
-    @IBOutlet weak var serviceReminderButton: UIButton!
-    @IBOutlet weak var viewMapButton: UIButton!
+    @IBOutlet var viewDocumentButton: UIButton! // this is to connect with the view document button
+    @IBOutlet var viewExpenseButton: UIButton! // this is to connect with the expense button
+    @IBOutlet var serviceReminderButton: UIButton! // this is to connect with the services button
+    @IBOutlet var viewMapButton: UIButton! // this is to connect with the view map button
 
-
+    // setting up button animations and the selected cars name on the view
     override func viewDidLoad() {
         super.viewDidLoad()
         if let car = mainDelegate.cars.first(where: { $0.id == mainDelegate.currentCarId}) {
@@ -45,7 +47,7 @@ class ViewDocumentsViewController: UIViewController {
             })
     }
    
-    
+    // this launches the view to see all added documents and option to add them
     @IBAction func viewDocumentButtonClicked()
     {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleDocumentViewController") as? VehicleDocumentViewController{
@@ -53,16 +55,21 @@ class ViewDocumentsViewController: UIViewController {
         }
     }
     
+    // this launches the view to see all added expenses and option to add them
     @IBAction func viewExpenseButtonClicked(){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "VehicleExpensesViewController") as? VehicleExpensesViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    // this launches the view to see all added services and option to add them
     @IBAction func serviceReminderButtonClicked(){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ServiceReminderViewController") as? ServiceReminderViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    // this launches the view to see all garages nearby
     @IBAction func findNearbyGaragesButtonClicked(){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "SearchGaragesViewController") as? SearchGaragesViewController{
             self.navigationController?.pushViewController(vc, animated: true)
