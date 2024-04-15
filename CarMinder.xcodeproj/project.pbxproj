@@ -32,6 +32,9 @@
 		CE1E97F52BC8D5DF0014896E /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1E97F42BC8D5DF0014896E /* Expense.swift */; };
 		CE2178282BCC715E0087FC1B /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2178272BCC715E0087FC1B /* car.png */; };
 		CE21782A2BCC72AC0087FC1B /* SearchGaragesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2178292BCC72AC0087FC1B /* SearchGaragesViewController.swift */; };
+		CE544DBC2BCCB9BA004992D5 /* hondaCivic.webp in Resources */ = {isa = PBXBuildFile; fileRef = CE544DBB2BCCB9BA004992D5 /* hondaCivic.webp */; };
+		CE544DBE2BCCBA8D004992D5 /* elantra.webp in Resources */ = {isa = PBXBuildFile; fileRef = CE544DBD2BCCBA8D004992D5 /* elantra.webp */; };
+		CE544DC02BCCBB01004992D5 /* charger.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE544DBF2BCCBB01004992D5 /* charger.jpeg */; };
 		CE62C5122BCB96F80004BD95 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62C5112BCB96F80004BD95 /* SplashViewController.swift */; };
 		CE62C5162BCB9ED70004BD95 /* opening.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE62C5152BCB9ED70004BD95 /* opening.mp3 */; };
 		CE714FD22BCB46CD00E86859 /* ServiceReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */; };
@@ -94,6 +97,9 @@
 		CE1E97F42BC8D5DF0014896E /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		CE2178272BCC715E0087FC1B /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		CE2178292BCC72AC0087FC1B /* SearchGaragesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGaragesViewController.swift; sourceTree = "<group>"; };
+		CE544DBB2BCCB9BA004992D5 /* hondaCivic.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = hondaCivic.webp; sourceTree = "<group>"; };
+		CE544DBD2BCCBA8D004992D5 /* elantra.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = elantra.webp; sourceTree = "<group>"; };
+		CE544DBF2BCCBB01004992D5 /* charger.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charger.jpeg; sourceTree = "<group>"; };
 		CE62C5112BCB96F80004BD95 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE62C5152BCB9ED70004BD95 /* opening.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = opening.mp3; sourceTree = "<group>"; };
 		CE714FD12BCB46CD00E86859 /* ServiceReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceReminderViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 		CE13F9EB2BB8CDAC00520DD2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE544DBF2BCCBB01004992D5 /* charger.jpeg */,
+				CE544DBD2BCCBA8D004992D5 /* elantra.webp */,
+				CE544DBB2BCCB9BA004992D5 /* hondaCivic.webp */,
 				CE112D5D2BCCA32500A7E56F /* background4.jpeg */,
 				CE112D5B2BCCA2C700A7E56F /* background3.webp */,
 				CE112D512BCC9F2000A7E56F /* background2.jpeg */,
@@ -366,14 +375,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2178282BCC715E0087FC1B /* car.png in Resources */,
+				CE544DBE2BCCBA8D004992D5 /* elantra.webp in Resources */,
 				379CA5152BBB0F1F00E49CD6 /* carminder.db in Resources */,
 				CE62C5162BCB9ED70004BD95 /* opening.mp3 in Resources */,
 				CE112D4E2BCC9BEC00A7E56F /* documentCartoon.png in Resources */,
+				CE544DC02BCCBB01004992D5 /* charger.jpeg in Resources */,
 				CE112D522BCC9F2000A7E56F /* background2.jpeg in Resources */,
 				CE112D4A2BCC97B200A7E56F /* document.png in Resources */,
 				CE112D4C2BCC97B200A7E56F /* alarm.png in Resources */,
 				CEEDC0672BB8BD4C00315785 /* LaunchScreen.storyboard in Resources */,
 				CE112D5E2BCCA32500A7E56F /* background4.jpeg in Resources */,
+				CE544DBC2BCCB9BA004992D5 /* hondaCivic.webp in Resources */,
 				CE13F9ED2BB8CF1900520DD2 /* accord.jpeg in Resources */,
 				CE112D4B2BCC97B200A7E56F /* maps.png in Resources */,
 				CE112D492BCC97B200A7E56F /* saving.png in Resources */,

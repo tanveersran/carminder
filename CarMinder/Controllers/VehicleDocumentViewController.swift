@@ -25,10 +25,10 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
-        let backgroundImage = UIImage(named: "background2.jpeg")
+        let backgroundImage = UIImage(named: "background.jpeg")
         let backgroundImageView = UIImageView(image: backgroundImage)
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.alpha = 0.85
+        backgroundImageView.alpha = 0.65
         tableView.backgroundView = backgroundImageView
     }
     
@@ -56,7 +56,7 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
     // step 12c - what should go in each cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let tableCell  = tableView.dequeueReusableCell(withIdentifier: "cell") as? DocumentCell ?? DocumentCell(style: .default, reuseIdentifier: "cell")
+        let tableCell  = tableView.dequeueReusableCell(withIdentifier: "cell") as? SiteCell ?? SiteCell(style: .default, reuseIdentifier: "cell")
         
         
         let rowNum = indexPath.row
@@ -67,7 +67,8 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
         
         
         tableCell.primaryLabel.text = mainDelegate.documents[rowNum].title
-        tableCell.secondaryLabel.text = dateString
+        tableCell.secondaryLabel.text = "Date : " + dateString
+        tableCell.myImageView.image = UIImage(named: mainDelegate.documents[rowNum].imagesUrl![0])
             
 
         

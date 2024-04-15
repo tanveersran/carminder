@@ -21,13 +21,13 @@ class SiteCell: UITableViewCell {
         primaryLabel.textAlignment = NSTextAlignment.left
         primaryLabel.font = UIFont.boldSystemFont(ofSize: 24)
         primaryLabel.backgroundColor = UIColor.clear
-        primaryLabel.textColor = UIColor.white
+        primaryLabel.textColor = UIColor.black
         
         // step 11d - configure secondaryLabel
        secondaryLabel.textAlignment = NSTextAlignment.left
         secondaryLabel.font = UIFont.boldSystemFont(ofSize: 13)
         secondaryLabel.backgroundColor = UIColor.clear
-        secondaryLabel.textColor = UIColor.white
+        secondaryLabel.textColor = UIColor.black
         
         // step 11e - no configuring of myImageView needed, instead add all 3 items manually as below
         super.init(style: style, reuseIdentifier: reuseIdentifier)

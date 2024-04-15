@@ -60,7 +60,7 @@ class ServiceReminderViewController: UIViewController,  UITableViewDataSource, U
         
         tableCell.primaryLabel.text = mainDelegate.reminders[rowNum].title
         tableCell.secondaryLabel.text = mainDelegate.reminders[rowNum].dueDistance?.codingKey.stringValue
-        tableCell.thirdLabel.text = dateString
+        tableCell.thirdLabel.text = "Date : " + dateString
         tableCell.accessoryType = .disclosureIndicator
         
         return tableCell

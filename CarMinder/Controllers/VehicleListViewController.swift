@@ -30,7 +30,7 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         let backgroundImage = UIImage(named: "background.jpeg")
         let backgroundImageView = UIImageView(image: backgroundImage)
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.alpha = 0.85
+        backgroundImageView.alpha = 0.65
         tableView.backgroundView = backgroundImageView
     }
     
@@ -61,7 +61,7 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         
         let rowNum = indexPath.row
         tableCell.primaryLabel.text = mainDelegate.cars[rowNum].name
-        tableCell.secondaryLabel.text = mainDelegate.cars[rowNum].vin
+        tableCell.secondaryLabel.text = "VIN " + mainDelegate.cars[rowNum].vin!
         tableCell.myImageView.image = UIImage(named: mainDelegate.cars[rowNum].image!)
             
         
@@ -102,11 +102,16 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
             success(true)
         }
         )
+        deleteAction.backgroundColor = UIColor.blue.withAlphaComponent(0.5) // Adjust the alpha value as needed
+            
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            configuration.performsFirstActionWithFullSwipe = false
         deleteAction.backgroundColor = .red
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
+   
     
     
     @IBAction func unwindtoHomeVC(sender : UIStoryboardSegue){

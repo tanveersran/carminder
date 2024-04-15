@@ -19,21 +19,21 @@ class DocumentCell: UITableViewCell {
         
         // step 11c - configure primaryLabel
         primaryLabel.textAlignment = NSTextAlignment.left
-        primaryLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        primaryLabel.font = UIFont.boldSystemFont(ofSize: 22)
         primaryLabel.backgroundColor = UIColor.clear
         primaryLabel.textColor = UIColor.black
         
         // step 11d - configure secondaryLabel
        secondaryLabel.textAlignment = NSTextAlignment.left
-        secondaryLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        secondaryLabel.font = UIFont.boldSystemFont(ofSize: 16)
         secondaryLabel.backgroundColor = UIColor.clear
-        secondaryLabel.textColor = UIColor.blue
+        secondaryLabel.textColor = UIColor.black
         
         // step 11d - configure secondaryLabel
        thirdLabel.textAlignment = NSTextAlignment.left
-        thirdLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        thirdLabel.font = UIFont.boldSystemFont(ofSize: 16)
         thirdLabel.backgroundColor = UIColor.clear
-        thirdLabel.textColor = UIColor.red
+        thirdLabel.textColor = UIColor.black
         
         
         // step 11e - no configuring of myImageView needed, instead add all 3 items manually as below
