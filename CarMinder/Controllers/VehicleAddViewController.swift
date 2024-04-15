@@ -2,9 +2,9 @@ import UIKit
 
 class VehicleAddViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet var tfName : UITextField!
-    @IBOutlet var tfVin : UITextField!
-    var currentScannedImagePath: String!
+    @IBOutlet var tfName : UITextField! // this is connected to the vehicle name field
+    @IBOutlet var tfVin : UITextField! // this is connected to the vin name field
+    var currentScannedImagePath: String! // this will store image path of the current selected image
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     var imagePicker = UIImagePickerController()
     
