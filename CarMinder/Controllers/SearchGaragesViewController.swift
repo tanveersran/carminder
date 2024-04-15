@@ -1,3 +1,10 @@
+//
+//  VehicleExpensesViewController.swift
+//  CarMinder
+//
+//  Created by Birarpanjot Singh on 4/12/24.
+//  This controller is used to search for nearby garages and show them on the map.
+//
 
 import UIKit
 import MapKit
