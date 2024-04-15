@@ -2,7 +2,7 @@
 //  Data.swift
 //  CarMinder
 //
-//  Created by Default User on 3/30/24.
+//  Created by Tanveer on 3/30/24.
 // This file is used to create object for Car class and this is main class we are using for our project.
 
 import UIKit
@@ -13,10 +13,11 @@ class Car: NSObject {
     var vin : String? // vin number is saved in vin field
     var image: String?  //image of car is saved image field
     
-    // initWithData method is used to initialize the object of Car class which have 4 fields id, name, vin, image
+    // initWithData method is used to initialize Car class which have 4 parameters id, name, vin, image
     func initWithData(theRow i:Int, theName n:String, theVin v:String, theImage ima:String
                       )
     {
+        // we are assigning the values of parameters to the fields of Car class
         id = i
         name = n
         vin = v

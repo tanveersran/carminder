@@ -3,21 +3,21 @@
 //  CarMinder
 //
 //  Created by Rajat Rajat on 2024-04-01.
+//  This file is used to create object for DocumentCell class, it is used to view document
+//  and document cell class is required to show each document.
 //
 
 import UIKit
 
 class DocumentCell: UITableViewCell {
 
-    // step 11 - define 2 labels and an image view for our custom cell
-    let primaryLabel = UILabel()
-    let secondaryLabel = UILabel()
-    let thirdLabel = UILabel()
-    
-    // step 11b - override the following constructor
+    let primaryLabel = UILabel() // label to provide primary information
+    let secondaryLabel = UILabel() // label to provide secondary information
+    let thirdLabel = UILabel()  // label to provide additional information
+
+// 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
-        // step 11c - configure primaryLabel
         primaryLabel.textAlignment = NSTextAlignment.left
         primaryLabel.font = UIFont.boldSystemFont(ofSize: 17)
         primaryLabel.backgroundColor = UIColor.clear
