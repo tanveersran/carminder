@@ -1,61 +1,80 @@
-//
-//  SearchGaragesViewController.swift
-//  CarMinder
-//
-//  Created by Default User on 4/14/24.
-//
 
 import UIKit
 import MapKit
 
-class SearchGaragesViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, MKMapViewDelegate {
-    
+class SearchGaragesViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
+
     var locationManager = CLLocationManager()
-    var  initialLocation : CLLocation?
-    @IBOutlet var myMapView : MKMapView!
-    @IBOutlet var tbLocEntered: UITextField!
-   
-   
+    var initialLocation: CLLocation?
+    @IBOutlet var myMapView: MKMapView!
+    @IBOutlet var searchBar: UISearchBar!
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            locationManager.delegate = self
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-            
-            myMapView.delegate = self
-            myMapView.showsUserLocation = true
+        super.viewDidLoad()
         
-        title = "Nearby"
-        }
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
+        myMapView.delegate = self
+        myMapView.showsUserLocation = true
         
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            guard let location = locations.last else { return }
-            
-            if initialLocation == nil {
-                initialLocation = location
-                
-                let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
-                myMapView.setRegion(region, animated: true)
-                
-                addNearbyCarGarages(at: location.coordinate)
-            }
-        }
+        searchBar.delegate = self
+        searchBar.placeholder = "Search for nearby garages"
         
-        func addNearbyCarGarages(at coordinate: CLLocationCoordinate2D) {
+        title = "Nearby Garages"
+    }
 
-            
-            let garageCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude + 0.01, longitude: coordinate.longitude + 0.01)
-            let garageAnnotation = MKPointAnnotation()
-            garageAnnotation.coordinate = garageCoordinate
-            garageAnnotation.title = "Car Garage"
-            myMapView.addAnnotation(garageAnnotation)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+
+        if initialLocation == nil {
+            initialLocation = location
+
+            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+            myMapView.setRegion(region, animated: true)
         }
     }
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCompleter.queryFragment = searchText
+    }
 
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text, !query.isEmpty else { return }
+        searchNearbyGarages(for: query)
+        searchBar.resignFirstResponder()
+    }
+
+    func searchNearbyGarages(for query: String) {
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = query
+        request.region = myMapView.region
+
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            guard let response = response else {
+                print("Error searching: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+
+            // Add annotations for search results
+            for item in response.mapItems {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = item.placemark.coordinate
+                annotation.title = item.name
+                self.myMapView.addAnnotation(annotation)
+            }
+
+            self.myMapView.setRegion(response.boundingRegion, animated: true)
+
+
+        }
+    }
+}

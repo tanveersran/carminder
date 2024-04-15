@@ -26,6 +26,12 @@ class ServiceReminderViewController: UIViewController,  UITableViewDataSource, U
         mainDelegate.readDataFromDatabaseRemindersTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
+        
+        let backgroundImage = UIImage(named: "background.jpeg")
+        let backgroundImageView = UIImageView(image: backgroundImage)
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.85
+        tableView.backgroundView = backgroundImageView
        
 
     }

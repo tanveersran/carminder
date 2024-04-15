@@ -21,14 +21,13 @@ class SiteCell: UITableViewCell {
         primaryLabel.textAlignment = NSTextAlignment.left
         primaryLabel.font = UIFont.boldSystemFont(ofSize: 24)
         primaryLabel.backgroundColor = UIColor.clear
-        primaryLabel.textColor = UIColor.black
+        primaryLabel.textColor = UIColor.white
         
         // step 11d - configure secondaryLabel
        secondaryLabel.textAlignment = NSTextAlignment.left
         secondaryLabel.font = UIFont.boldSystemFont(ofSize: 13)
         secondaryLabel.backgroundColor = UIColor.clear
-        secondaryLabel.textColor = UIColor.blue
-        
+        secondaryLabel.textColor = UIColor.white
         
         // step 11e - no configuring of myImageView needed, instead add all 3 items manually as below
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,11 +46,9 @@ class SiteCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    // step 11g - define size and location of all 3 items as below
-    // return to ChooseSiteViewController.swift
+
     override func layoutSubviews() {
         
         var f = CGRect(x: 100, y: 5, width: 460, height: 30)
@@ -60,7 +57,7 @@ class SiteCell: UITableViewCell {
         f = CGRect(x: 100, y: 40, width: 460, height: 20)
         secondaryLabel.frame = f
         
-        f = CGRect(x: 5, y: 5, width: 45, height: 45)
+        f = CGRect(x: 5, y: 5, width: 70, height: 55)
         myImageView.frame = f
         
         

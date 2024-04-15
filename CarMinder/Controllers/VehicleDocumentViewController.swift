@@ -24,6 +24,12 @@ class VehicleDocumentViewController: UIViewController , UITableViewDataSource, U
         mainDelegate.readDataFromDatabaseDocumentsTable(id: mainDelegate.currentCarId)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
+        
+        let backgroundImage = UIImage(named: "background2.jpeg")
+        let backgroundImageView = UIImageView(image: backgroundImage)
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.85
+        tableView.backgroundView = backgroundImageView
     }
     
     override func viewDidAppear(_ animated: Bool) {

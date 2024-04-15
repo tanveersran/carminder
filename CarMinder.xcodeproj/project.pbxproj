@@ -48,6 +48,7 @@
 		CEEDC07E2BB8BD4D00315785 /* CarMinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDC07D2BB8BD4D00315785 /* CarMinderUITestsLaunchTests.swift */; };
 		CEEDC08D2BB8BD7500315785 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEDC08C2BB8BD6300315785 /* libsqlite3.0.tbd */; };
 		CEEDC08E2BB8BD7500315785 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEDC08B2BB8BD6300315785 /* libsqlite3.tbd */; };
+		CEF5688F2BCCAD8D0060CB07 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5688E2BCCAD8D0060CB07 /* WebKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		CEEDC07D2BB8BD4D00315785 /* CarMinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEEDC08B2BB8BD6300315785 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CEEDC08C2BB8BD6300315785 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		CEF5688E2BCCAD8D0060CB07 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				CE714FD32BCB48A100E86859 /* ServiceReminderAddViewController.swift */,
 				CE62C5112BCB96F80004BD95 /* SplashViewController.swift */,
 				CE2178292BCC72AC0087FC1B /* SearchGaragesViewController.swift */,
+				CEF5688E2BCCAD8D0060CB07 /* WebKitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				CE62C5122BCB96F80004BD95 /* SplashViewController.swift in Sources */,
 				CE13F9F72BBA48BD00520DD2 /* VehicleExpenseAddViewController.swift in Sources */,
 				CE714FD62BCB4EEA00E86859 /* Reminder.swift in Sources */,
+				CEF5688F2BCCAD8D0060CB07 /* WebKitViewController.swift in Sources */,
 				CE21782A2BCC72AC0087FC1B /* SearchGaragesViewController.swift in Sources */,
 				CE13F9F92BBA4BA700520DD2 /* VehicleDocumentViewController.swift in Sources */,
 				CE13F9EF2BB8D1C900520DD2 /* VehicleAddViewController.swift in Sources */,

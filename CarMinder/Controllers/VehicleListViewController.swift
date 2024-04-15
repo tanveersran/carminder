@@ -1,9 +1,4 @@
-//
-//  ViewController.swift
-//  CarMinder
-//
-//  Created by Default User on 3/30/24.
-//
+
 
 import UIKit
 
@@ -50,18 +45,15 @@ class VehicleListViewController: UIViewController , UITableViewDataSource, UITab
         super.didReceiveMemoryWarning()
     }
     
-    // step 12 - add table methods
-    // step 12a - for number of table cells
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mainDelegate.cars.count
     }
 
-    // step 12b - how thick each cell is
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
-    // step 12c - what should go in each cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell  = tableView.dequeueReusableCell(withIdentifier: "cell") as? SiteCell ?? SiteCell(style: .default, reuseIdentifier: "cell")

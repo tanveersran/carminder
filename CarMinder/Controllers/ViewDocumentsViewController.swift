@@ -14,6 +14,7 @@ class ViewDocumentsViewController: UIViewController {
     @IBOutlet weak var viewExpenseButton: UIButton!
     @IBOutlet weak var serviceReminderButton: UIButton!
     @IBOutlet weak var viewMapButton: UIButton!
+    @IBOutlet weak var contactNearbyGarages : UIButton!
 
 
     override func viewDidLoad() {
@@ -22,27 +23,32 @@ class ViewDocumentsViewController: UIViewController {
             title = car.name
         }
         
-            viewDocumentButton.alpha = 0
-            viewExpenseButton.alpha = 0
-            serviceReminderButton.alpha = 0
-            viewMapButton.alpha = 0
-            
+        viewDocumentButton.alpha = 0
+        viewExpenseButton.alpha = 0
+        serviceReminderButton.alpha = 0
+        viewMapButton.alpha = 0
+        contactNearbyGarages.alpha = 0
+
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-                self.viewDocumentButton.alpha = 1
+            self.viewDocumentButton.alpha = 1
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
+                self.viewExpenseButton.alpha = 1
             }, completion: { _ in
                 UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
-                    self.viewExpenseButton.alpha = 1
+                    self.serviceReminderButton.alpha = 1
                 }, completion: { _ in
                     UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
-                        self.serviceReminderButton.alpha = 1
+                        self.viewMapButton.alpha = 1
                     }, completion: { _ in
                         // Animation for new button
                         UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
-                            self.viewMapButton.alpha = 1
+                            self.contactNearbyGarages.alpha = 1
                         }, completion: nil)
                     })
                 })
             })
+        })
     }
    
     
@@ -68,6 +74,12 @@ class ViewDocumentsViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    @IBAction func needRepairButtonClicked(){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "WebKitViewController") as? WebKitViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
 
   
